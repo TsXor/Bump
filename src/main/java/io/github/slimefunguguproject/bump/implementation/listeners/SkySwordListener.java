@@ -2,6 +2,7 @@ package io.github.slimefunguguproject.bump.implementation.listeners;
 
 import javax.annotation.Nonnull;
 
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,13 +22,16 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.Persis
 public final class SkySwordListener implements Listener {
     @EventHandler
     public void onPlayerHitGround(@Nonnull EntityDamageEvent e) {
-        if (e.getEntity() instanceof Player p
+        Entity entity = e.getEntity();
+        if (e.getEntity() instanceof Player
             && e.getCause() == EntityDamageEvent.DamageCause.FALL
-            && PersistentDataAPI.getBoolean(p, Keys.SKY_SWORD_PROTECTED)
         ) {
-            e.setCancelled(true);
-            Bump.getLocalization().sendActionbarMessage(p, "weapon.sky_sword.protected");
-            PersistentDataAPI.setBoolean(p, Keys.SKY_SWORD_PROTECTED, false);
+            Player p = (Player)entity;
+            if (PersistentDataAPI.getBoolean(p, Keys.SKY_SWORD_PROTECTED)) {
+                e.setCancelled(true);
+                Bump.getLocalization().sendActionbarMessage(p, "weapon.sky_sword.protected");
+                PersistentDataAPI.setBoolean(p, Keys.SKY_SWORD_PROTECTED, false);
+            }
         }
     }
 }

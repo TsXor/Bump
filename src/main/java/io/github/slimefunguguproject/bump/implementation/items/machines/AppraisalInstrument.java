@@ -18,6 +18,7 @@ import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
 import io.github.slimefunguguproject.bump.implementation.items.RandomEquipment;
 import io.github.slimefunguguproject.bump.implementation.items.tools.QualityIdentifier;
 import io.github.slimefunguguproject.bump.utils.AppraiseUtils;
+import io.github.slimefunguguproject.bump.utils.BackportUtils;
 import io.github.slimefunguguproject.bump.utils.GuiItems;
 import io.github.slimefunguguproject.bump.utils.ValidateUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -174,7 +175,7 @@ public final class AppraisalInstrument extends SimpleMenuBlock {
         String current = BlockStorage.getLocationInfo(loc, APPRAISE_TYPE_KEY);
         AppraiseType type = null;
         if (current != null) {
-            NamespacedKey key = NamespacedKey.fromString(current, Bump.getInstance());
+            NamespacedKey key = BackportUtils.nkFromString(current, Bump.getInstance());
             if (key != null) {
                 type = AppraiseType.getByKey(key);
             }

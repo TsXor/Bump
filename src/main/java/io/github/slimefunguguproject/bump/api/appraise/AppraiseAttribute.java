@@ -64,7 +64,8 @@ public final class AppraiseAttribute {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof AppraiseAttribute anotherAttribute) {
+        if (obj instanceof AppraiseAttribute) {
+            AppraiseAttribute anotherAttribute = (AppraiseAttribute)obj;
             return getAttribute() == anotherAttribute.getAttribute()
                 && getMin() == anotherAttribute.getMin()
                 && getMax() == anotherAttribute.getMax()

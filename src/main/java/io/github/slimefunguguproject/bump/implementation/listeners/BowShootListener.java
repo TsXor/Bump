@@ -1,6 +1,7 @@
 package io.github.slimefunguguproject.bump.implementation.listeners;
 
 import org.bukkit.entity.Arrow;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +20,9 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 public final class BowShootListener implements Listener {
     @EventHandler
     public void onBowUse(EntityShootBowEvent e) {
-        if (e.getEntity() instanceof Player player && e.getProjectile() instanceof Arrow) {
+        LivingEntity entity = e.getEntity();
+        if (entity instanceof Player && e.getProjectile() instanceof Arrow) {
+            Player player = (Player)entity;
             SlimefunItem bow = SlimefunItem.getByItem(e.getBow());
 
             if (bow != null) {

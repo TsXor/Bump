@@ -8,6 +8,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.bukkit.Sound;
+
 import com.google.common.base.Preconditions;
 
 import io.github.slimefunguguproject.bump.implementation.Bump;
@@ -74,7 +76,7 @@ public final class SoundService {
         setDefault(sound.name() + ".volume", sound.getVolume());
         setDefault(sound.name() + ".pitch", sound.getPitch());
 
-        String soundId = config.getString(sound.name() + ".sound");
+        Sound soundId = config.getObject(sound.name() + ".sound", Sound.class);
         float volume = (float) config.getDouble(sound.name() + ".volume");
         float pitch = (float) config.getDouble(sound.name() + ".pitch");
 

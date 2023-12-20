@@ -16,13 +16,11 @@ import org.bukkit.entity.Player;
 import io.github.slimefunguguproject.bump.implementation.Bump;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 /**
  * This enum contains almost all configurable sounds in Bump.
  */
 @Getter
-@RequiredArgsConstructor
 @SuppressWarnings("ConstantConditions")
 public enum BumpSound {
     APPRAISAL_INSTRUMENT_FAIL(Sound.ENTITY_VILLAGER_NO, 1.0F, 1.0F),
@@ -39,14 +37,13 @@ public enum BumpSound {
     SOUL_SWORD_USE(Sound.AMBIENT_CAVE, 1.0F, 1.0F),
     WITHER_SKULL_BOW_USE(Sound.ENTITY_WITHER_SHOOT, 1.0F, 1.0F);
 
-    private final String sound;
+    private final Sound sound;
     private final float volume;
     private final float pitch;
 
     BumpSound(@Nonnull Sound sound, float volume, float pitch) {
         Preconditions.checkArgument(sound != null, "Sound cannot be null");
-
-        this.sound = sound.getKey().getKey();
+        this.sound = sound;
         this.volume = volume;
         this.pitch = pitch;
     }

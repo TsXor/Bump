@@ -1,6 +1,6 @@
 package io.github.slimefunguguproject.bump.api.exceptions;
 
-import java.io.Serial;
+//import java.io.Serial;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -17,7 +17,7 @@ import io.github.slimefunguguproject.bump.utils.tags.BumpTag;
  */
 public class TagMisconfigurationException extends Exception {
 
-    @Serial
+    //@Serial
     private static final long serialVersionUID = 1145141919810L;
 
     /**

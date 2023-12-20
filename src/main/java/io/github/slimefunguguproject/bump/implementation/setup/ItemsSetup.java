@@ -196,7 +196,8 @@ public final class ItemsSetup {
 
         // compression random equipment
         final SlimefunItem compressorItem = SlimefunItem.getById("COMPRESSOR");
-        if (compressorItem instanceof Compressor compressor) {
+        if (compressorItem instanceof Compressor) {
+            Compressor compressor = (Compressor)compressorItem;
             compressor.addRecipe(new ItemStack[]{BumpItems.RANDOM_HELMET}, BumpItems.COMPRESSED_RANDOM_EQUIPMENT);
             compressor.addRecipe(new ItemStack[]{BumpItems.RANDOM_SWORD}, BumpItems.COMPRESSED_RANDOM_EQUIPMENT);
             compressor.addRecipe(new ItemStack[]{BumpItems.RANDOM_HORSE_ARMOR}, BumpItems.COMPRESSED_RANDOM_EQUIPMENT);

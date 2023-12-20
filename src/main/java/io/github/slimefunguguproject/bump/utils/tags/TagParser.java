@@ -76,7 +76,7 @@ class TagParser implements Keyed {
                 JsonArray values = child.getAsJsonArray();
 
                 for (JsonElement element : values) {
-                    if (element instanceof JsonPrimitive primitive && primitive.isString()) {
+                    if (element instanceof JsonPrimitive && ((JsonPrimitive)element).isString()) {
                         parseString(element.getAsString(), materials, tags);
                     } else {
                         throw new TagMisconfigurationException(key, "Unexpected value format: " + element.getClass().getSimpleName() + " - " + element);

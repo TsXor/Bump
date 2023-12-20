@@ -12,6 +12,7 @@ import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
 import io.github.slimefunguguproject.bump.implementation.items.tools.QualityIdentifier;
+import io.github.slimefunguguproject.bump.utils.BackportUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
@@ -59,7 +60,7 @@ public final class LegacyAppraisalPaper extends LimitedUseItem {
             PersistentDataAPI.setInt(newMeta, getStorageKey(), usesLeft);
             newItem.setItemMeta(newMeta);
 
-            p.getInventory().setItem(e.getHand(), newItem);
+            BackportUtils.setEquipmentSlotItems(p.getInventory(), e.getHand(), newItem);
 
             Bump.getLocalization().sendMessage(p, "tool.appraisal_paper.legacy");
         };

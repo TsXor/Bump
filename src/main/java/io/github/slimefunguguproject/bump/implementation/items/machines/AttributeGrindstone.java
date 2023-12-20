@@ -24,6 +24,7 @@ import io.github.slimefunguguproject.bump.implementation.Bump;
 import io.github.slimefunguguproject.bump.implementation.BumpItems;
 import io.github.slimefunguguproject.bump.implementation.groups.BumpItemGroups;
 import io.github.slimefunguguproject.bump.utils.AppraiseUtils;
+import io.github.slimefunguguproject.bump.utils.BackportUtils;
 import io.github.slimefunguguproject.bump.utils.GuiItems;
 import io.github.slimefunguguproject.bump.utils.ValidateUtils;
 import io.github.slimefunguguproject.bump.utils.constant.Keys;
@@ -163,7 +164,7 @@ public final class AttributeGrindstone extends SimpleMenuBlock {
                 for (Map.Entry<Attribute, AttributeModifier> entry : modifierMap.entries()) {
                     Attribute attribute = entry.getKey();
                     AttributeModifier modifier = entry.getValue();
-                    NamespacedKey key = NamespacedKey.fromString(modifier.getName(), Bump.getInstance());
+                    NamespacedKey key = BackportUtils.nkFromString(modifier.getName(), Bump.getInstance());
                     if (key != null && AppraiseType.getByKey(key) != null) {
                         meta.removeAttributeModifier(attribute, modifier);
                     }

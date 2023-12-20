@@ -1,3 +1,13 @@
+# Bump-j13bp
+Java13 backport of `Bump` (API-1.14 backport as well)
+## Compilation
+Firstly, install `SefiLib-j13bp` and `GuizhanLib-j13bp`.  
+Then, clone this repo and run `gradle shadowJar` in repo folder.  
+Output is in `build/libs`.  
+## Notice
+I suggest disabling auto update. Also, DO NOT report errors to original repo.
+
+
 ![image](https://user-images.githubusercontent.com/83174104/132268179-7e53d79b-b8cf-4044-86b7-baa94efb4b42.png)
 
 # Bump

@@ -468,11 +468,15 @@ public class AppraiseType {
 
         // Equipment type check
         Optional<SlimefunItem> sfItem = Optional.ofNullable(SlimefunItem.getByItem(itemStack));
-        return switch (getEquipmentType()) {
-            case VANILLA -> sfItem.isEmpty();
-            case SLIMEFUN -> sfItem.isPresent() && isAcceptableSlimefunItem(sfItem.get());
-            case ANY -> sfItem.isEmpty() || isAcceptableSlimefunItem(sfItem.get());
-        };
+        /****/ if (getEquipmentType() == EquipmentType.VANILLA) {
+            return sfItem.isEmpty();
+        } else if (getEquipmentType() == EquipmentType.SLIMEFUN) {
+            return sfItem.isPresent() && isAcceptableSlimefunItem(sfItem.get());
+        } else if (getEquipmentType() == EquipmentType.ANY) {
+            return sfItem.isEmpty() || isAcceptableSlimefunItem(sfItem.get());
+        } else {
+            return false; // impossible
+        }
     }
 
     /**
@@ -489,7 +493,8 @@ public class AppraiseType {
 
     @Override
     public final boolean equals(Object obj) {
-        if (obj instanceof AppraiseType other) {
+        if (obj instanceof AppraiseType) {
+            AppraiseType other = (AppraiseType)obj;
             return this.getKey().equals(other.getKey());
         } else {
             return false;

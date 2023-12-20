@@ -6,29 +6,22 @@ plugins {
 
 group = 'io.github.slimefunguguproject'
 description = 'Bump'
-java.sourceCompatibility = JavaVersion.VERSION_16
+java.sourceCompatibility = JavaVersion.VERSION_13
 
 repositories {
-    mavenCentral()
-    maven {
-        url = uri('https://hub.spigotmc.org/nexus/content/repositories/snapshots/')
-    }
-
-    maven {
-        url = uri('https://jitpack.io')
-    }
-
-    maven {
-        url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/')
-    }
+    mavenLocal()
+    maven { url = uri('https://hub.spigotmc.org/nexus/content/repositories/snapshots/') }
+    maven { url = uri('https://jitpack.io') }
+    maven { url = uri('https://oss.sonatype.org/content/repositories/snapshots/') }
+    maven { url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/') }
 }
 
 dependencies {
-    implementation 'net.guizhanss:GuizhanLib-api:1.6.1'
-    implementation 'dev.sefiraat:SefiLib:0.2.6'
+    implementation 'net.guizhanss:GuizhanLib-api:1.6.1-j13bp'
+    implementation 'dev.sefiraat:SefiLib:0.2.6-j13bp'
     implementation 'org.bstats:bstats-bukkit:3.0.2'
 
-    compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.14.4-R0.1-SNAPSHOT'
     compileOnly 'io.github.Slimefun:Slimefun4:RC-32'
     compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
     compileOnly 'org.projectlombok:lombok:1.18.30'

@@ -1,3 +1,12 @@
+# Bump-j13bp
+`Bump`的Java13 backport (其实也是API-1.14 backport)
+## 编译方法
+首先按步骤安装`SefiLib-j13bp`和`GuizhanLib-j13bp`。  
+然后clone本仓库，在仓库文件夹内运行`gradle shadowJar`。  
+输出在`build/libs`。  
+## 注意
+建议关闭自动更新，同时请不要到原仓库中报告本仓库的错误。
+
 ![image](https://user-images.githubusercontent.com/83174104/132268179-7e53d79b-b8cf-4044-86b7-baa94efb4b42.png)
 
 # Bump
