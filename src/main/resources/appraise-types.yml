@@ -27,10 +27,10 @@ sword:
       min: -3
       max: 10
       weight: 10
-    GENERIC_ATTACK_KNOCKBACK:
-      min: -2
-      max: 12
-      weight: 10
+    #GENERIC_ATTACK_KNOCKBACK:
+    #  min: -2
+    #  max: 12
+    #  weight: 10
 
 armor:
   enabled: true
